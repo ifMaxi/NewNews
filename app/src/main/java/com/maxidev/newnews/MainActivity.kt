@@ -14,7 +14,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.maxidev.newnews.core.presentation.theme.NewNewsTheme
 import com.maxidev.newnews.feature.home.ui.HomeView
@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
             }
 
             NewNewsTheme {
-                val viewModel: HomeViewModel = hiltViewModel()
+                val viewModel: HomeViewModel = viewModel()
                 val contentPagedItems = viewModel.contentPagerState.collectAsLazyPagingItems()
                 val searchPagedItems = viewModel.searchPagerState.collectAsLazyPagingItems()
                 val query by viewModel.query
